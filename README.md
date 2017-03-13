@@ -1,11 +1,10 @@
 # tictactoe
 
-set up:
+# Setup
 1. Fork and clone the repo
 2. run npm install
 
-to play:
-1. choose who will be X or who will be O
+# To Play
+1. choose who will be X and who will be O. The game will always start with X
 2. run npm start
 
-The game will always start with X
