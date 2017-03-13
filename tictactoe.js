@@ -77,11 +77,24 @@ var winConditions = [
                     ];
 
 var checkWin = function(player) {
-  
+  var count = 0;
+  winConditions.forEach(function(condition, tile) {
+    count = 0;
+    condition.forEach(function(tile) {
+      if (board[tile] === player) {
+        count++;
+        if (count === 3) {
+          return true;
+        }
+      }
+    });
+  });
+
+  return false;
 }
 
 var checkTie = function() {
-  for (var = 1; i < Object.keys(board).length; i++) {
+  for (var i = 1; i < Object.keys(board).length; i++) {
     if (!isNaN(board[i])) {
       return false;
     }
@@ -96,7 +109,7 @@ var play = function(player = 'X') {
   console.log(`Player ${player}'s turn: `)
   prompt.get(['tile'], function(err, result) {
     if (validateInput(result.tile) && board[result.tile] === Number(result.tile)) {
-      placePlay[result.tile] = player;
+      placePlay(result.tile, player);
       if (checkWin(player)) {
         console.log(`${player} is the winner!`);
         return;
