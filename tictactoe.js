@@ -61,30 +61,49 @@ var validateInput = function(value) {
   }
 }
 
-var placePlay = function() {
-
+var placePlay = function(tile, player) {
+  board[tile] = player;
 }
 
-var checkWin = function() {
+var checkWin = function(player) {
 
 }
 
 var checkTie = function() {
-  
+
 }
 
-var play = function(player, boardInPlay = board) {
-  console.log('Game start: \n');
+var play = function(player = 'X') {
   printboard();
 
   prompt.start();
   console.log(`Player ${player}'s turn: `)
   prompt.get(['tile'], function(err, result) {
-    
+    if (validateInput(result.tile) && board[result.tile] === Number(result.tile)) {
+      placePlay[result.tile] = player;
+      if (checkWin(player)) {
+        console.log(`${player} is the winner!`);
+        return;
+      }
+      if (checkTie()) {
+        console.log('The game is a tie!');
+        return;
+      }
+      if (player === 'X') {
+        play('O');
+      }
+      if (player === 'O') {
+        play('X');
+      }
+    } else {
+      console.log('Sorry, input a tile number');
+      play(player);
+    }
   });
 }
 
-play('X');
+console.log('GAME START!');
+play();
 
 
 
