@@ -65,12 +65,28 @@ var placePlay = function(tile, player) {
   board[tile] = player;
 }
 
-var checkWin = function(player) {
+var winConditions = [
+                      [1, 2, 3], 
+                      [4, 5, 6], 
+                      [7, 8, 9], 
+                      [1, 4, 7],
+                      [2, 5, 8], 
+                      [3, 6, 9], 
+                      [1, 5, 9], 
+                      [3, 5, 7]
+                    ];
 
+var checkWin = function(player) {
+  
 }
 
 var checkTie = function() {
-
+  for (var = 1; i < Object.keys(board).length; i++) {
+    if (!isNaN(board[i])) {
+      return false;
+    }
+  }
+  return true;
 }
 
 var play = function(player = 'X') {
