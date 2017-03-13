@@ -30,6 +30,8 @@
 // Upon completion of your work, submit a link to the repository via this form.
 
 // var board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+var prompt = require('prompt');
+
 var board = {
   '1': 1,
   '2': 2,
@@ -50,6 +52,19 @@ var printboard = function() {
         ' ---------\n' +
         ' ' + board[7] + ' | ' + board[8] + ' | ' + board[9] + '\n')
 };
+
+
+var play = function() {
+  console.log('Game start: \n');
+  printboard();
+
+  prompt.start();
+  prompt.get(['tile'], function(err, result) {
+    
+  });
+}
+
+play();
 
 
 
