@@ -53,18 +53,38 @@ var printboard = function() {
         ' ' + board[7] + ' | ' + board[8] + ' | ' + board[9] + '\n')
 };
 
+var validateInput = function(value) {
+  if(isNaN(value)) {
+    return false;
+  } else {
+    return Number(value);
+  }
+}
 
-var play = function() {
+var placePlay = function() {
+
+}
+
+var checkWin = function() {
+
+}
+
+var checkTie = function() {
+  
+}
+
+var play = function(player, boardInPlay = board) {
   console.log('Game start: \n');
   printboard();
 
   prompt.start();
+  console.log(`Player ${player}'s turn: `)
   prompt.get(['tile'], function(err, result) {
     
   });
 }
 
-play();
+play('X');
 
 
 
