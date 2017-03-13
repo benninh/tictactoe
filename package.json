@@ -1,0 +1,23 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tictactoe.js",
+  "scripts": {
+    "start": "node tictactoe.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benninh/tictactoe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benninh/tictactoe/issues"
+  },
+  "homepage": "https://github.com/benninh/tictactoe#readme",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}
