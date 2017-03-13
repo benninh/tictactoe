@@ -79,16 +79,21 @@ var winConditions = [
 var checkWin = function(player) {
   var count = 0;
   var win = false;
+
   winConditions.forEach(function(condition, tile) {
-    count = 0;
-    condition.forEach(function(tile) {
-      if (board[tile] === player) {
-        count++;
-        if (count === 3) {
-          win = true;
+    if (!win) {
+      count = 0;
+      condition.forEach(function(tile) {
+        if(!win) {
+          if (board[tile] === player) {
+            count++;
+            if (count === 3) {
+              win = true;
+            }
+          }
         }
-      }
-    });
+      });
+    }
   });
 
   return win;
