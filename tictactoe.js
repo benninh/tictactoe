@@ -78,19 +78,20 @@ var winConditions = [
 
 var checkWin = function(player) {
   var count = 0;
+  var win = false;
   winConditions.forEach(function(condition, tile) {
     count = 0;
     condition.forEach(function(tile) {
       if (board[tile] === player) {
         count++;
         if (count === 3) {
-          return true;
+          win = true;
         }
       }
     });
   });
 
-  return false;
+  return win;
 }
 
 var checkTie = function() {
@@ -111,6 +112,7 @@ var play = function(player = 'X') {
     if (validateInput(result.tile) && board[result.tile] === Number(result.tile)) {
       placePlay(result.tile, player);
       if (checkWin(player)) {
+        printboard();
         console.log(`${player} is the winner!`);
         return;
       }
