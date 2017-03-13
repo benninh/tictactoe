@@ -111,20 +111,24 @@ var checkTie = function() {
 var play = function(player = 'X') {
   printboard();
 
+  console.log(`Player ${player}'s turn: `);
+  
   prompt.start();
-  console.log(`Player ${player}'s turn: `)
   prompt.get(['tile'], function(err, result) {
     if (validateInput(result.tile) && board[result.tile] === Number(result.tile)) {
       placePlay(result.tile, player);
+
       if (checkWin(player)) {
         printboard();
         console.log(`${player} is the winner!`);
         return;
       }
+
       if (checkTie()) {
         console.log('The game is a tie!');
         return;
       }
+      
       if (player === 'X') {
         play('O');
       }
